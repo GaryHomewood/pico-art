@@ -1,0 +1,180 @@
+:root {
+  font-family: Inter var, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --sketch-width: 320px;
+  --sketch-card-padding: 36px;
+  --sketch-card-border: 1px;
+
+  --slate-50:  #f8fafc;
+  --slate-100: #f1f5f9;
+  --slate-200: #e2e8f0;
+  --slate-300: #cbd5e1;
+  --slate-400: #94a3b8;
+  --slate-500: #64748b;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+  --slate-950: #020617;
+
+  --bg: #010409;
+  --border: #30363d;
+  --card-bg: #0d1117;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+button, .sketch__button {
+  border-radius: 50%;
+  border: 1px solid var(--border) !important;
+  background-color: #1a1a1a !important;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: var(--slate-300) !important
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+main {
+  margin: 0 auto;
+  width: calc(var(--sketch-width) + (2 * var(--sketch-card-padding)) + (2 * var(--sketch-card-border)));
+}
+
+header {
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  color: #f0f6fc;
+  font-weight: 500;
+  margin: 2px 0
+}
+
+.sketch-card {
+  border: 1px solid var(--border);
+  background-color: var(--card-bg);
+  border-radius: 6px;
+  margin-bottom: 32px;
+  padding: 8px var(--sketch-card-padding) 12px;
+  position: relative;
+}
+
+.label-a,
+.label-b,
+.label-x,
+.label-y {
+  position: absolute;
+  background: ivory;
+  color: black;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.label-a {
+  top: 10px;
+  left: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.label-b {
+  bottom: 72px;
+  left: 6px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.label-x {
+  top: 10px;
+  right: 6px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.label-y {
+  bottom: 72px;
+  right: 6px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+@media (min-width: 480px) {
+  main {
+    margin: 0 auto;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, 1fr);
+    width: calc(2 * (var(--sketch-width) + (2 * var(--sketch-card-padding)) + (2 * var(--sketch-card-border))));
+  }
+
+  .sketch-card {
+    margin-bottom: 0;
+  }
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: relative;
+  left: 12px;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.path {
+  stroke: ivory;
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
