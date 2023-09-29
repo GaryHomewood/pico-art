@@ -1,7 +1,7 @@
 function saveSketch(sketchName, sketchId) {
-  let canvas = document.getElementById(sketchId) ;
-  let dataURL = canvas.toDataURL("image/jpeg");
-  let loadingButton = document.getElementById(`${sketchName}-loading`);
+  const canvas = document.getElementById(sketchId) ;
+  const dataURL = canvas.toDataURL("image/jpeg");
+  const loadingButton = document.getElementById(`${sketchName}-loading`);
   if (loadingButton) {
     loadingButton.innerHTML = '<svg class="spinner" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle></svg>'
     loadingButton.disabled = true
@@ -66,6 +66,7 @@ new p5((p5) => {
   const sketchId = '1';
 
   p5.setup = function () {
+    p5.pixelDensity(1)
     p5.createCanvas(320, 240);
     const canvasContainer = document.getElementById(`sketch-${sketchId}`);
     const canvas = canvasContainer?.children[0];
@@ -136,6 +137,7 @@ new p5((p5) => {
   const sketchId = '2';
 
   p5.setup = function () {
+    p5.pixelDensity(1)
     p5.createCanvas(320, 240);
     const canvasContainer = document.getElementById(`sketch-${sketchId}`);
     const canvas = canvasContainer?.children[0];
@@ -221,6 +223,7 @@ new p5((p5) => {
   const sketchId = '3';
 
   p5.setup = function () {
+    p5.pixelDensity(1)
     p5.createCanvas(320, 240);
     const canvasContainer = document.getElementById(`sketch-${sketchId}`);
     const canvas = canvasContainer?.children[0];
@@ -381,6 +384,7 @@ new p5((p5) => {
   let palette, w
 
   p5.setup = function () {
+    p5.pixelDensity(1)
     p5.createCanvas(320, 240);
     const canvasContainer = document.getElementById(`sketch-${sketchId}`);
     const canvas = canvasContainer?.children[0];

@@ -24,10 +24,13 @@ def save():
     with open(sketch_file_name, 'wb') as f:
         f.write(response.file.read())
 
+    # Synchronise the clock on the Pico so last modified date for the jpeg is correct
+    subprocess.check_output("rshell date -b pyboard", shell=True)
+
     # Upload the jpeg to the Pico with ampy (Adafruit MicroPython tool) 
     subprocess.check_output(f'ampy put {sketch_file_name}', shell=True)
 
-    # Reset the board with rshell
+    # Reset the board
     subprocess.check_output("rshell -f reset.sh", shell=True)
     
     return '', HTTPStatus.NO_CONTENT
